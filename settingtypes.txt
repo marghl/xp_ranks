@@ -1,0 +1,12 @@
+[XP Ranks]
+
+# Privileges are cumulative: higher ranks inherit all privileges from lower ranks.
+xp_ranks.privileges.newcomer (Newcomer privileges) string
+xp_ranks.privileges.inhabitant (Inhabitant privileges) string
+xp_ranks.privileges.citizen (Citizen privileges) string
+xp_ranks.privileges.noble (Noble privileges) string
+
+# If enabled, privileges previously granted by this mod are removed after an XP demotion.
+# Disabled by default so an XP loss can never unexpectedly remove access.
+xp_ranks.revoke_on_demotion (Revoke rank privileges after demotion) bool false
+
