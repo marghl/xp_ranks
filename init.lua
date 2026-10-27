@@ -1,6 +1,11 @@
 local MODNAME = core.get_current_modname()
 local storage = core.get_mod_storage()
 
+core.register_privilege("area_protect", {
+	description = "Can create personal protected areas",
+	give_to_singleplayer = false,
+})
+
 local rank_groups = {
 	{
 		id = "newcomer",
@@ -173,4 +178,3 @@ core.register_on_joinplayer(function(player)
 		sync_privileges(playername, xp_redo.get_xp(playername))
 	end)
 end)
-

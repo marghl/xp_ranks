@@ -16,12 +16,28 @@ Privileges are comma- or whitespace-separated and cumulative. Example:
 
 ```ini
 xp_ranks.privileges.newcomer =
-xp_ranks.privileges.inhabitant = home
+xp_ranks.privileges.inhabitant = area_protect
 xp_ranks.privileges.citizen = fast
 xp_ranks.privileges.noble = fly
 ```
 
-With this example, a Noble receives `home`, `fast`, and `fly`.
+With this example, a Noble receives `area_protect`, `fast`, and `fly`.
+`area_protect` is registered by this mod and is the default privilege granted
+from Inhabitant onwards.
+
+To let holders of this privilege create their own protected areas, configure
+the `areas` mod in `server.conf`:
+
+```ini
+areas.self_protection = true
+areas.self_protection_privilege = area_protect
+```
+
+This permits `/protect` within the size and count limits configured by
+`areas`. It deliberately does not grant the powerful `areas` administrator
+privilege. Existing worlds may already have an explicit
+`xp_ranks.privileges.inhabitant` setting; add `area_protect` to that value in
+this case because explicit settings override the default.
 
 By default, XP loss never revokes privileges. Optional revocation can be enabled:
 
@@ -40,4 +56,3 @@ server:
 ```ini
 load_mod_xp_ranks = true
 ```
-
