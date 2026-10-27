@@ -6,6 +6,11 @@ core.register_privilege("area_protect", {
 	give_to_singleplayer = false,
 })
 
+core.register_privilege("jumpdrive", {
+	description = "Can operate jumpdrives",
+	give_to_singleplayer = false,
+})
+
 local rank_groups = {
 	{
 		id = "newcomer",
@@ -177,4 +182,30 @@ core.register_on_joinplayer(function(player)
 	core.after(0, function()
 		sync_privileges(playername, xp_redo.get_xp(playername))
 	end)
+end)
+
+core.register_on_mods_loaded(function()
+	if not jumpdrive or type(jumpdrive.preflight_check) ~= "function" then
+		return
+	end
+
+	local previous_preflight_check = jumpdrive.preflight_check
+	jumpdrive.preflight_check = function(source, destination, radius, player)
+		local playername
+		if type(player) == "string" then
+			playername = player
+		elseif player and player.get_player_name then
+			playername = player:get_player_name()
+		end
+
+		if not playername or playername == "" or
+				not core.check_player_privs(playername, { jumpdrive = true }) then
+			return {
+				success = false,
+				message = "The jumpdrive privilege is required to operate a jumpdrive.",
+			}
+		end
+
+		return previous_preflight_check(source, destination, radius, player)
+	end
 end)

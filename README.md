@@ -18,10 +18,11 @@ Privileges are comma- or whitespace-separated and cumulative. Example:
 xp_ranks.privileges.newcomer =
 xp_ranks.privileges.inhabitant = area_protect
 xp_ranks.privileges.citizen = fast
-xp_ranks.privileges.noble = fly
+xp_ranks.privileges.noble = fly, jumpdrive
 ```
 
-With this example, a Noble receives `area_protect`, `fast`, and `fly`.
+With this example, a Noble receives `area_protect`, `fast`, `fly`, and
+`jumpdrive`.
 `area_protect` is registered by this mod and is the default privilege granted
 from Inhabitant onwards.
 
@@ -38,6 +39,19 @@ This permits `/protect` within the size and count limits configured by
 privilege. Existing worlds may already have an explicit
 `xp_ranks.privileges.inhabitant` setting; add `area_protect` to that value in
 this case because explicit settings override the default.
+
+## Jumpdrive access
+
+If the `jumpdrive` mod is installed, this mod restricts its preflight check to
+players with the `jumpdrive` privilege. The privilege is granted to Noble by
+default. Playerless automation, such as a mesecon-triggered jump, is denied
+because no privileged player can be identified.
+
+Existing worlds with an explicit Noble privilege setting must include it:
+
+```ini
+xp_ranks.privileges.noble = fast, fly, jumpdrive
+```
 
 By default, XP loss never revokes privileges. Optional revocation can be enabled:
 
