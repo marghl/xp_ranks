@@ -1,5 +1,6 @@
 local MODNAME = core.get_current_modname()
 local storage = core.get_mod_storage()
+local S = core.get_translator(MODNAME)
 
 core.register_privilege("area_protect", {
 	description = "Can create personal protected areas",
@@ -14,7 +15,7 @@ core.register_privilege("jumpdrive", {
 local rank_groups = {
 	{
 		id = "newcomer",
-		name = "Newcomer",
+		name = S("Newcomer"),
 		color = { r = 180, g = 200, b = 210 },
 		levels = {
 			{ xp = 0, label = "I" },
@@ -27,7 +28,7 @@ local rank_groups = {
 	},
 	{
 		id = "inhabitant",
-		name = "Inhabitant",
+		name = S("Inhabitant"),
 		color = { r = 110, g = 200, b = 120 },
 		levels = {
 			{ xp = 1000, label = "I" },
@@ -41,7 +42,7 @@ local rank_groups = {
 	},
 	{
 		id = "citizen",
-		name = "Citizen",
+		name = S("Citizen"),
 		color = { r = 90, g = 160, b = 240 },
 		levels = {
 			{ xp = 100000, label = "I" },
@@ -55,7 +56,7 @@ local rank_groups = {
 	},
 	{
 		id = "noble",
-		name = "Wizzard",
+		name = S("Wizzard"),
 		color = { r = 235, g = 190, b = 60 },
 		levels = {
 			{ xp = 1200000 },

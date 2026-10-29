@@ -1,0 +1,5 @@
+# textdomain: xp_ranks
+Newcomer=
+Inhabitant=
+Citizen=
+Wizzard=
