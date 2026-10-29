@@ -55,7 +55,7 @@ local rank_groups = {
 	},
 	{
 		id = "noble",
-		name = "Noble",
+		name = "Wizzard",
 		color = { r = 235, g = 190, b = 60 },
 		levels = {
 			{ xp = 1200000 },

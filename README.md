@@ -8,7 +8,7 @@ cumulative rank privileges.
 - Newcomer: 0, 100, 200, 300, 500, 700 XP
 - Inhabitant: 1,000, 2,500, 5,000, 10,000, 25,000, 50,000, 75,000 XP
 - Citizen: 100,000, 200,000, 350,000, 500,000, 700,000, 900,000, 1,100,000 XP
-- Noble: 1,200,000 XP
+- Wizzard: 1,200,000 XP
 
 ## Privilege configuration
 
@@ -21,7 +21,7 @@ xp_ranks.privileges.citizen = fast
 xp_ranks.privileges.noble = fly, jumpdrive
 ```
 
-With this example, a Noble receives `area_protect`, `fast`, `fly`, and
+With this example, a Wizzard receives `area_protect`, `fast`, `fly`, and
 `jumpdrive`.
 `area_protect` is registered by this mod and is the default privilege granted
 from Inhabitant onwards.
@@ -43,11 +43,13 @@ this case because explicit settings override the default.
 ## Jumpdrive access
 
 If the `jumpdrive` mod is installed, this mod restricts its preflight check to
-players with the `jumpdrive` privilege. The privilege is granted to Noble by
-default. Playerless automation, such as a mesecon-triggered jump, is denied
-because no privileged player can be identified.
+players with the `jumpdrive` privilege. The privilege is granted to Wizzard by
+default. For automated jumps, Jumpdrive supplies the engine owner's name, so
+the owner's privilege is checked even when they are offline. Ownerless engines
+are denied.
 
-Existing worlds with an explicit Noble privilege setting must include it:
+Existing worlds with an explicit Wizzard privilege setting must include it.
+The setting retains its original `noble` identifier for compatibility:
 
 ```ini
 xp_ranks.privileges.noble = fast, fly, jumpdrive

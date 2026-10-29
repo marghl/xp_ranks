@@ -4,7 +4,7 @@
 xp_ranks.privileges.newcomer (Newcomer privileges) string
 xp_ranks.privileges.inhabitant (Inhabitant privileges) string area_protect
 xp_ranks.privileges.citizen (Citizen privileges) string
-xp_ranks.privileges.noble (Noble privileges) string jumpdrive
+xp_ranks.privileges.noble (Wizzard privileges) string jumpdrive
 
 # If enabled, privileges previously granted by this mod are removed after an XP demotion.
 # Disabled by default so an XP loss can never unexpectedly remove access.
